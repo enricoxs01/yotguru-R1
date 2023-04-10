@@ -1,0 +1,31 @@
+<%- include('../partials/header') %>
+
+
+<section id="show-vessel">
+    <p>
+      <div> Name:    <%= vessel.name %></div>
+    </p>
+    <p>
+      <div> Hull ID: <%= vessel.hullId %></div>
+    </p>
+    <p>
+      <div> Length Overall: <%= vessel.LOA %></div>
+    </p>
+    <p>
+      <div> Manufacturer : <%= vessel.manufacturer %></div>
+    </p>
+    <p>
+      <div> Model : <%= vessel.model %></div>
+    </p>
+    <p>
+      <div> Model Year : <%= vessel.modelYear %></div>
+    </p>
+</section>
+<br><br>
+<a href = "/vessels/<%= vessel._id %>/vessel/edit"> Edit Vessel </a>
+<br><br>
+<a href = "/vessels/<%= vessel._id %>/vessel/delete"> Delete Vessel </a>
+<br><br>
+
+
+<%- include('../partials/footer') %>

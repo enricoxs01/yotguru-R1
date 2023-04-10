@@ -10,7 +10,7 @@ router.get('/',vesselsCtrl.index);
 router.get('/new', vesselsCtrl.new);
 router.post('/', vesselsCtrl.create);
 // show a selected vessel
-//router.get('/:id', vesselsCtrl.show);
+router.get('/:id', vesselsCtrl.show);
 // Remove vessel*/
 
 	
