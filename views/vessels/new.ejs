@@ -1,0 +1,37 @@
+<%- include('../partials/header') %>
+
+<form id="new-form" action="/vessels" method="POST">
+  <p>
+  <label>Name(*):</label>
+  <input type="text" name="name" required>
+  </p>
+  <p>
+  <label>Hull Identifier(*):</label>
+  <input type="text" name="hullId" required>
+  </p>
+  <p>
+  <label>Length Overall(*): </label>
+  <input type="number" min = "5" name="LOA" required>
+  </p>
+  <p>
+  <label>Manufacturer</label>
+  <select name="manufacturer"> 
+    <option value="Azimut">Azimut</option>
+    <option value="Princess">Princess</option>
+    <option value="Sea Ray">Sea Ray</option>
+    <option value="Viking">Viking</option>
+  </select>
+  </p>
+  <p>
+  <label>Model:</label>
+  <input type="text" name="model">
+  </p>
+  <p>
+  <label> Model Year: </label>
+  <input type="number" name="modelYear" min="1900" max="2099"  required/>
+  </p>
+  <br>
+  <input type="submit" value="Add Vessel">
+</form>
+
+<%- include('../partials/footer') %>
