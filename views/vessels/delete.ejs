@@ -1,13 +1,14 @@
 <%- include('../partials/header') %>
 
-<form action="/vessels/<%= vessel.id %>/edit?_method=DELETE" method="POST">
+<form action="/vessels/<%= vessel.id %>?_method=DELETE" method="POST">
   <p bold> Are you certain to delete this vessel from your account?</p> 
   <br> 
   <p> Vessel name:  <%= vessel.name %></p> 
   <br>
   <button type="submit">Delete Vessel</button>
-  <br> <br>
-  <a href="/vessels/<%= vessel.id %>/edit"> Cancel </a>
 </form>
+
+<br> <br>
+<a href="/vessels/<%= vessel.id %>/edit"> Cancel </a>
 
 <%- include('../partials/footer') %>

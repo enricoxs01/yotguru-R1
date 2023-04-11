@@ -10,10 +10,11 @@ router.get('/',vesselsCtrl.index);
 router.get('/new', vesselsCtrl.new);
 router.post('/', vesselsCtrl.create);
 
-router.delete('/:id/delete', vesselsCtrl.delete);
 
 router.get('/:id/edit', vesselsCtrl.edit);
 router.put('/:id/edit', vesselsCtrl.update);
+router.get('/:id/delete', vesselsCtrl.confirm);
+router.delete('/:id', vesselsCtrl.delete)
 
 // show a selected vessel
 router.get('/:id', vesselsCtrl.show);

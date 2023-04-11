@@ -7,7 +7,8 @@ module.exports = {
   create,
   edit,
   update,
-  delete: deleteVessel
+  delete: deleteVessel,
+  confirm: confirmDeleteVessel
 };
 
 async function index(req, res) {
@@ -65,13 +66,23 @@ async function edit(req, res) {
   });
 }
 
-async function deleteVessel(req, res) {
+async function confirmDeleteVessel(req, res) {
   const vessel = await Vessels.findById(req.params.id);
-  console.log("I am DELETING")
   res.render('vessels/delete', {
     title: 'Confirm Vessel Deletion',
     vessel
   });
 }
 
+async function deleteVessel (req,res){
+
+  console.log(req.params.id)
+  Vessels.deleteOne({_id: req.params.id})
+  .then(console.log("delete success!"))
+  //.catch(console.log("delete err!"));
+
+  const vessels = await Vessels.find({});
+
+  res.render('vessels/index', { title: 'Your vessels', vessels });
+}
 
