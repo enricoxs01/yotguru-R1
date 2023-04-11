@@ -3,19 +3,20 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
-//var session = require('express-session');
-//var passport = require('passport');
+var session = require('express-session');
+var passport = require('passport');
 var methodOverride = require('method-override');
+const GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
+const User = require('./models/user');
 
-require('dotenv').config();
 // connect to the database with AFTER the config vars are processed
+require('dotenv').config();
 require('./config/database');
-
-//require('./config/passport');
+require('./config/passport');
 
 // MY ROUTERS
 var indexRouter = require('./routes/index');
-//var usersRouter = require('./routes/users');
+var usersRouter = require('./routes/users');
 var vesselRouter = require('./routes/vessels')
 
 
@@ -30,11 +31,23 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(session({
+  secret: process.env.SECRET,
+  resave: false,
+  saveUninitialized: true
+}));
+app.use(passport.initialize());
+app.use(passport.session());
 app.use(methodOverride('_method'));
+
+app.use(function (req, res, next) {
+  res.locals.user = req.user;
+  next();
+});
 
 
 app.use('/', indexRouter);
-//app.use('/users', usersRouter);
+app.use('/users', usersRouter);
 app.use('/vessels', vesselRouter)
 
 // catch 404 and forward to error handler

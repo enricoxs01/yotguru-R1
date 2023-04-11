@@ -1,7 +1,10 @@
 body {
   padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-  background-image: url("images/yot-welcome.jpeg");
+  font: 24px "Lucida Grande", Helvetica, Arial, sans-serif;
+  color: rgb(52, 64, 114);
+  background-image: url("../images/yot-welcome.jpeg");
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 a {

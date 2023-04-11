@@ -1,10 +1,20 @@
 body {
   padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  font: 24px "Lucida Grande", Helvetica, Arial, sans-serif;
+  color: rgb(52, 64, 114);
 }
 
 a {
   color: #00B7FF;
+}
+
+.welcome {
+  background-image: url("../images/yot-welcome.jpeg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.login img {
+  height: 30px;
 }
 
 form  { display: table;      }

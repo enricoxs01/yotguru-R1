@@ -82,7 +82,6 @@ async function deleteVessel (req,res){
   //.catch(console.log("delete err!"));
 
   const vessels = await Vessels.find({});
-
   res.render('vessels/index', { title: 'Your vessels', vessels });
 }
 

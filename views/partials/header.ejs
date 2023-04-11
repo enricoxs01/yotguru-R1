@@ -8,13 +8,19 @@
   <title>Yotguru</title>
 </head>
 <body>
-
-  <nav>
+  <% if (user) { %>
     <a href="/vessels"> Vessels </a>
     |
     <a href="account/show" > Account </a>
     |
-    <a> Logout</a>
-  </nav>
+    <a href="/logout">LOG OUT</a>
+  <% } else { %>
+    <h1 bold align="center"> Welcome to Yotguru </h1>
+    <br>
+    <br>
+    <h3 align="center"> Please login in order to proceed </h3>
+    <a href="/auth/google" class="login">LOG IN&nbsp;<img src="../../public/images/yot-welcome.jpeg"></a>
+  <% } %>
+  <nav>
       <h1><%= title %></h1>
   <main>
