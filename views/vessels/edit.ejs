@@ -1,0 +1,8 @@
+<%- include('../partials/header') %>
+
+<form action="/vessels/<%= vessel.id %>/edit?_method=PUT" method="POST">
+  <input type="text" name="vessel" value="<%= vessel.name %>"><br>
+  <button type="submit">Update vessel</button>
+</form>
+
+<%- include('../partials/footer') %>

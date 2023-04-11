@@ -9,9 +9,15 @@ router.get('/',vesselsCtrl.index);
 // create a new vessel entry
 router.get('/new', vesselsCtrl.new);
 router.post('/', vesselsCtrl.create);
+
+router.delete('/:id/delete', vesselsCtrl.delete);
+
+router.get('/:id/edit', vesselsCtrl.edit);
+router.put('/:id/edit', vesselsCtrl.update);
+
 // show a selected vessel
 router.get('/:id', vesselsCtrl.show);
-// Remove vessel*/
+
 
 	
 module.exports = router;
