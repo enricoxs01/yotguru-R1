@@ -1,4 +1,6 @@
 const Vessels = require('../models/vessel');
+const Account = require('../models/account')
+//const accountCtrl = require('./account')
 
 module.exports = {
   index,
@@ -16,8 +18,17 @@ async function index(req, res) {
   res.render('vessels/index', { title: 'Your vessels', vessels });
 }
 
-function newVessel(req, res) {
-  res.render('vessels/new', { title: 'Add A New Vessel', errorMsg: '' });
+
+
+async function newVessel(req, res) {
+  // Before creating a first vessel make sure that the Account profile has been filled
+  let acct = await Account.findOne({email: req.user.email})
+
+  if (acct.completedStatus) {
+      res.render('vessels/new', { title: 'Add A New Vessel', errorMsg: '' });
+  } else { 
+      res.redirect('/account')
+  }
 }
 
 async function create(req, res) {
@@ -25,7 +36,7 @@ async function create(req, res) {
   for (let key in req.body) {
     if (req.body[key] === '') delete req.body[key];
   }
- 
+  
   try {
     // Update this line because now we need the _id of the new movie
     const vessel = await Vessels.create(req.body);

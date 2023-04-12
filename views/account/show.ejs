@@ -1,0 +1,40 @@
+<%- include('../partials/header') %>
+
+<form id="account-form" action="/account?_method=PUT" method = "POST">
+    <p>
+    <label>User Name:</label>
+    <input type="text" value="<%= acct.user %>" readonly="true">
+    </p>
+    <p>
+    <label>Account Number:</label>
+    <input type="text" value="<%= acct.actNumber %>" readonly="true">
+    </p>    
+    <p>
+    <label>First Name:</label>
+    <input type="text" name = "firstName" value="<%= acct.firstName %>" >
+    </p> 
+    <p>
+    <label>Middle Name:</label>
+    <input type="text" name="middleName" value="<%= acct.middleName %>">
+    </p> 
+    <p>
+    <label>Last Name:</label>
+    <input type="text" name="lastName" value="<%= acct.lastName %>" >
+    </p>
+    <p>
+    <label>Email:</label>
+    <input type="text" value="<%= acct.email%>" readonly="true">
+    </p>  
+    <p>
+    <label>Recovery email:</label>
+    <input type="text" name = "recoveryEmail" value="<%= acct.recoveryEmail %>">
+    </p> 
+    <p>
+      <label>Phone:</label>
+      <input type="text" name = "phone" value="<%= acct.phone %>">
+    </p> 
+    <br>
+    <input type="submit" name="submit" value="Update Account">
+  </form>
+  
+<%- include('../partials/footer') %>

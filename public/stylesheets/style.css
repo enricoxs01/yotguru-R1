@@ -1,6 +1,6 @@
 body {
   padding: 50px;
-  font: 24px "Lucida Grande", Helvetica, Arial, sans-serif;
+  font: 16px "Lucida Grande", Helvetica, Arial, sans-serif;
   color: rgb(52, 64, 114);
 }
 
@@ -13,6 +13,7 @@ a {
   background-repeat: no-repeat;
   background-size: cover;
 }
+
 .login img {
   height: 30px;
 }
@@ -21,6 +22,12 @@ form  { display: table;      }
 p     { display: table-row;  }
 label { display: table-cell; }
 input { display: table-cell; }
+
+input:read-only,
+textarea:read-only {
+    background-color: rgb(230, 230, 230);
+}
+
 
 table,th,td {
   border: 1px solid;
