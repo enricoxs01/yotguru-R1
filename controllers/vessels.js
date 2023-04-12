@@ -14,7 +14,8 @@ module.exports = {
 };
 
 async function index(req, res) {
-  const vessels = await Vessels.find({});
+  const acct = await Account.findOne({email: req.user.email})
+  const vessels = await Vessels.find({account: acct._id});
   res.render('vessels/index', { title: 'Your vessels', vessels });
 }
 
@@ -24,7 +25,7 @@ async function newVessel(req, res) {
   // Before creating a first vessel make sure that the Account profile has been filled
   let acct = await Account.findOne({email: req.user.email})
 
-  if (acct.completedStatus) {
+  if (acct.completeStatus) {
       res.render('vessels/new', { title: 'Add A New Vessel', errorMsg: '' });
   } else { 
       res.redirect('/account')
@@ -38,11 +39,14 @@ async function create(req, res) {
   }
   
   try {
-    // Update this line because now we need the _id of the new movie
+    //First add this vessel and then link it to the appropriate account 
+    let acct = await Account.findOne({email: req.user.email})
     const vessel = await Vessels.create(req.body);
-    const vessels = await Vessels.find({});
+    
+    vessel.account =  acct._id
+    vessel.save();
 
-    res.render('vessels/index', { title: 'Your vessels', vessels });
+    res.redirect('/vessels')
 
   } catch (err) {
     // Typically some sort of validation error
@@ -53,6 +57,8 @@ async function create(req, res) {
 
 async function show(req, res) {
   const vessel = await Vessels.findById(req.params.id);
+  console.log("Vessel param id")
+  console.log(req.params.id)
   res.render('vessels/show', { title: 'Vessel Information', vessel});
 }
 

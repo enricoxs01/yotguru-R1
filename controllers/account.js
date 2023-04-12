@@ -2,7 +2,7 @@ const Account = require('../models/account');
 const User = require('../models/user')
 
 module.exports = {
-  show,
+  index,
   update
 };
 
@@ -23,29 +23,24 @@ async function update(req,res) {
 
   try { 
     await acct.save()
-    res.render('account/show', {title: 'Account profile', acct})
+    res.render('account/index', {title: 'Account profile', acct})
   } catch (err) {
       console.log("FAILED TO UPDATE ACCOUNT")
       res.redirect('/vessels',{ errorMessage: err.message});
   }
 }
 
-async function show(req,res) {
-  //let acct = await Account.findOne({email: req.user.email})
-    console.log("I am showing  req === > req.user")
-    console.log (req.user)
-  //  console.log("I am showing  ACcount === > acct")
- //   console.log(acct)
-
-
- /* if (acct.completedStatus) {
-    res.render('account/show', {title: 'Account profile', acct})
-} else { 
+async function index(req,res) {
+  let acct = await Account.findOne({email: req.user.email})
+ 
+  if (acct.completeStatus) {
+    res.render('account/index', {title: 'Account profile', acct})
+  } else { 
     acct.firstName =""
     acct.middleName=""
     acct.lastName =""
     acct.recoveryEmail =""
     acct.phone=null;
-    res.render('account/show', {title: 'Please complete the account profile', acct})
-}*/
+    res.render('account/index', {title: 'Please complete the account profile', acct})
+  }
 }

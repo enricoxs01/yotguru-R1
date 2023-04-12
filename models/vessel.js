@@ -23,7 +23,10 @@ const vesselSchema = new Schema({
   },
   modelYear: { 
     type: Number
-  }
+  },
+  account:  {
+    type: Schema.Types.ObjectId,
+    ref: 'Account' }
 }, {
   timestamps: true
 });

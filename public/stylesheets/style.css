@@ -9,13 +9,13 @@ a {
 }
 
 .welcome {
-  background-image: url("../images/yot-welcome.jpeg");
+  background-image: url("file:///Users/enrico/Documents/General%20Assembly/deliverables/yotguru-R1/public/images/yot-welcome.jpeg");
   background-repeat: no-repeat;
   background-size: cover;
 }
 
 .login img {
-  height: 30px;
+  height: 120px;
 }
 
 form  { display: table;      }

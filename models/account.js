@@ -29,9 +29,6 @@ const accountSchema = new Schema({
     yguser: { 
             type: Schema.Types.ObjectId,
             ref: 'User' },
-    vessels: [{ 
-             type:  Schema.Types.ObjectId,
-             ref: 'Vessel' }]
 }, {
   timestamps: true
 });
