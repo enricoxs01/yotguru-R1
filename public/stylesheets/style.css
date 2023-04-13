@@ -1,21 +1,45 @@
 body {
   padding: 50px;
   font: 16px "Lucida Grande", Helvetica, Arial, sans-serif;
-  color: rgb(52, 64, 114);
+  color: rgb(13, 19, 43);
+  background-image: url("/images/background-sea.jpeg");
+  background-repeat: no-repeat;
+  background-size: cover;
+
 }
 
 a {
-  color: #00B7FF;
+  color: #e3e1e9;
+}
+
+.navigation {
+  display: inline-flex;
+  background-color: rgb(49, 49, 74);
+  margin-bottom: 3%;
+  padding: 10px;
+  width: 100%;
+}
+.navigation div {
+    margin: 0px 20px;
 }
 
 .welcome {
-  background-image: url("file:///Users/enrico/Documents/General%20Assembly/deliverables/yotguru-R1/public/images/yot-welcome.jpeg");
+  background-image: url("/images/princess f50.png");
   background-repeat: no-repeat;
   background-size: cover;
+} 
+.login {
+  display: flex;
+  color:rgb(13, 19, 43);
+  justify-content: center;
+  align-items: center;
+  height: 34px;
 }
 
+
 .login img {
-  height: 120px;
+  height: 30px;
+  width:  30px;
 }
 
 form  { display: table;      }
